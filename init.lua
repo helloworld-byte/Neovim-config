@@ -1,0 +1,8 @@
+require("minaal.plugins-setup")
+require("minaal.core.options")
+require("minaal.core.keymaps")
+require("minaal.core.colorscheme")
+require("minaal.plugins.comment")
+require("minaal.plugins.nvim-tree")
+require("minaal.plugins.lualine")
+require("minaal.plugins.telescope")
