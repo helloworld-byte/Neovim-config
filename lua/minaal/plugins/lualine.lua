@@ -1,4 +1,4 @@
-local status, lualine = pcall(require, "lualine")
+--[[local status, lualine = pcall(require, "lualine")
 if not status then
   return
 end
@@ -29,4 +29,50 @@ lualine.setup({
   options = {
     theme = lualine_nightfly
   }
+})
+]]--
+
+local status, lualine = pcall(require, "lualine")
+if not status then
+  return
+end
+
+-- Use existing nightfly theme as base
+local lualine_nightfly = require("lualine.themes.nightfly")
+
+-- Adjust to retro-styled terminal palette
+local retro_colors = {
+  background = "#303446",
+  foreground = "#c6d0f5",
+  green = "#a6d189",
+  yellow = "#e5c890",
+  blue = "#8caaee",
+  pink = "#f4b8e4",
+  gray = "#51576d",
+  white = "#b5bfe2",
+}
+
+lualine_nightfly.normal.a.bg = retro_colors.blue
+lualine_nightfly.normal.a.fg = retro_colors.background
+lualine_nightfly.insert.a.bg = retro_colors.green
+lualine_nightfly.insert.a.fg = retro_colors.background
+lualine_nightfly.visual.a.bg = retro_colors.pink
+lualine_nightfly.visual.a.fg = retro_colors.background
+lualine_nightfly.inactive.a.bg = retro_colors.gray
+lualine_nightfly.inactive.a.fg = retro_colors.foreground
+lualine_nightfly.command = {
+  a = {
+    gui = "bold",
+    bg = retro_colors.yellow,
+    fg = retro_colors.background,
+  }
+}
+
+lualine.setup({
+  options = {
+    theme = lualine_nightfly,
+    icons_enabled = true,
+    section_separators = '',
+    component_separators = '',
+  },
 })
